@@ -47,7 +47,7 @@ export default function RegistroNegocio({ onRegistrado, onVolver }) {
 
   return (
     <div className="login-container">
-      <h2>Crea tu negocio</h2>
+      <h2>🏪 Crea tu negocio</h2>
       <form onSubmit={handleRegistro}>
         <input
           type="text"

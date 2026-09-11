@@ -59,7 +59,7 @@ export default function ConciliacionPedidos({ negocioId, refrescar }) {
   return (
     <div className="movements-section" style={{ marginTop: 20 }}>
       <div className="section-header">
-        <h3>Conciliación de caja</h3>
+        <h3>🧮 Conciliación de caja</h3>
         <div className="periodo-toggle">
           <div
             className={`periodo-option ${periodo === 'hoy' ? 'active' : ''}`}
@@ -87,19 +87,19 @@ export default function ConciliacionPedidos({ negocioId, refrescar }) {
 
         <div className="ganancias-detalle">
           <div className="item">
-            <div className="label">Según comandas</div>
+            <div className="label">🧾 Según comandas</div>
             <div className="valor" style={{ color: 'var(--lavender-dark)' }}>
               ${totalPedidos.toFixed(2)}
             </div>
           </div>
           <div className="item">
-            <div className="label">Registrado como ingreso</div>
+            <div className="label">💰 Registrado</div>
             <div className="valor" style={{ color: 'var(--mint-dark)' }}>
               ${totalIngresos.toFixed(2)}
             </div>
           </div>
           <div className="item">
-            <div className="label">Diferencia</div>
+            <div className="label">📐 Diferencia</div>
             <div
               className="valor"
               style={{ color: hayDesajuste ? 'var(--coral-dark)' : 'var(--mint-dark)' }}

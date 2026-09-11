@@ -55,7 +55,7 @@ export default function ProductosPopulares({ negocioId, refrescar }) {
   return (
     <div className="movements-section" style={{ marginTop: 20 }}>
       <div className="section-header">
-        <h3>Productos populares</h3>
+        <h3>🔥 Productos populares</h3>
         <div className="periodo-toggle">
           <div
             className={`periodo-option ${periodo === 'semana' ? 'active' : ''}`}
@@ -84,7 +84,7 @@ export default function ProductosPopulares({ negocioId, refrescar }) {
             style={{ borderLeftColor: i === 0 ? '#C7B8EA' : '#F0E6DC' }}
           >
             <div className="movement-tipo" style={{ color: '#3D3550' }}>
-              {i + 1}. {p.nombre}
+              {i === 0 ? '🏆' : `${i + 1}.`} {p.nombre}
             </div>
             <div className="movement-amount">{p.total} pedidos</div>
           </div>

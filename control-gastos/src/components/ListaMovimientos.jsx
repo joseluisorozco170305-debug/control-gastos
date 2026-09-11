@@ -25,15 +25,15 @@ export default function ListaMovimientos({ negocioId, refrescar }) {
 
   return (
     <div className="movements-section">
-      <h3>Movimientos</h3>
+      <h3>💸 Movimientos</h3>
       {movimientos.length === 0 ? (
-        <div className="empty-state">Todavía no hay movimientos registrados.</div>
+        <div className="empty-state">📭 Todavía no hay movimientos registrados.</div>
       ) : (
         movimientos.map((m) => (
           <div key={m.id} className={`movement-item ${m.tipo}`}>
             <div>
               <div className="movement-tipo">
-                {m.tipo === 'ingreso' ? '+ Ingreso' : '- Gasto'}
+                {m.tipo === 'ingreso' ? '💚 Ingreso' : '❤️ Gasto'}
               </div>
               <div className="movement-meta">
                 {m.descripcion || 'Sin descripción'} · {m.metodo_pago}

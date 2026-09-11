@@ -29,7 +29,7 @@ export default function Login({ onLogin, onIrARegistro }) {
 
   return (
     <div className="login-container">
-      <h2>Control de Gastos</h2>
+      <h2>🍓 Control de Gastos</h2>
       <form onSubmit={handleLogin}>
         <input
           type="email"

@@ -45,11 +45,15 @@ export default function CrearEmpleado() {
 
   return (
     <div className="movements-section" style={{ marginTop: 20 }}>
-      <h3>Empleados</h3>
+      <h3>👥 Empleados</h3>
 
       {!mostrarForm ? (
-        <button className="btn-secondary" onClick={() => setMostrarForm(true)} style={{ width: '100%' }}>
-          + Agregar empleado
+        <button
+          className="btn-secondary"
+          onClick={() => setMostrarForm(true)}
+          style={{ width: '100%' }}
+        >
+          ➕ Agregar empleado
         </button>
       ) : (
         <form onSubmit={handleCrear} className="balance-card" style={{ display: 'block' }}>

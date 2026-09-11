@@ -32,7 +32,6 @@ export default function GananciasPorDia({ negocioId, refrescar }) {
 
     const porDia = {}
 
-    // Prellenar los últimos 7 días con $0, así aparecen aunque no haya movimientos
     for (let i = 0; i < 7; i++) {
       const fecha = new Date(hace7dias)
       fecha.setDate(fecha.getDate() + i)
@@ -65,18 +64,18 @@ export default function GananciasPorDia({ negocioId, refrescar }) {
 
   return (
     <div className="movements-section" style={{ marginTop: 20 }}>
-      <h3>Ganancias por día (últimos 7 días)</h3>
+      <h3>📅 Ganancias por día (últimos 7 días)</h3>
 
       {mejorDia && peorDia && (
         <div className="ganancias-detalle" style={{ marginBottom: 10, marginTop: 0 }}>
           <div className="item">
-            <div className="label">Mejor día</div>
+            <div className="label">🌟 Mejor día</div>
             <div className="valor" style={{ color: 'var(--mint-dark)', fontSize: 16 }}>
               {mejorDia.dia} (${mejorDia.neto.toFixed(2)})
             </div>
           </div>
           <div className="item">
-            <div className="label">Día más flojo</div>
+            <div className="label">😴 Día más flojo</div>
             <div className="valor" style={{ color: 'var(--coral-dark)', fontSize: 16 }}>
               {peorDia.dia} (${peorDia.neto.toFixed(2)})
             </div>

@@ -47,14 +47,14 @@ export default function GraficaSaldo({ negocioId, refrescar }) {
 
   return (
     <div className="balance-section">
-      <h3>Saldo actual</h3>
+      <h3>💵 Saldo actual</h3>
       <div className="balance-cards">
         <div className="balance-card efectivo">
-          <div className="label">Efectivo</div>
+          <div className="label">💵 Efectivo</div>
           <div className="amount">${datos[0]?.saldo.toFixed(2)}</div>
         </div>
         <div className="balance-card banco">
-          <div className="label">Banco</div>
+          <div className="label">🏦 Banco</div>
           <div className="amount">${datos[1]?.saldo.toFixed(2)}</div>
         </div>
       </div>

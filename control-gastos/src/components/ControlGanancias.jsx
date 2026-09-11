@@ -75,19 +75,19 @@ export default function ControlGanancias({ negocioId, refrescar }) {
 
       <div className="ganancias-detalle">
         <div className="item">
-          <div className="label">Ingresos</div>
+          <div className="label">📈 Ingresos</div>
           <div className="valor" style={{ color: 'var(--mint-dark)' }}>
             ${totales.ingresos.toFixed(2)}
           </div>
         </div>
         <div className="item">
-          <div className="label">Gastos</div>
+          <div className="label">📉 Gastos</div>
           <div className="valor" style={{ color: 'var(--coral-dark)' }}>
             ${totales.gastos.toFixed(2)}
           </div>
         </div>
         <div className="item">
-          <div className="label">Ganancia neta</div>
+          <div className="label">✨ Ganancia neta</div>
           <div className="valor" style={{ color: esPositivo ? 'var(--mint-dark)' : 'var(--coral-dark)' }}>
             ${ganancia.toFixed(2)}
           </div>

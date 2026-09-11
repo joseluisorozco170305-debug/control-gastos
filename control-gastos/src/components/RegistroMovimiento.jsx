@@ -61,20 +61,20 @@ export default function RegistroMovimiento({ userId, negocioId, onGuardado }) {
   return (
     <div className="modal-overlay">
       <form onSubmit={handleGuardar} className="modal-card">
-        <h3>Registrar movimiento</h3>
+        <h3>💳 Registrar movimiento</h3>
 
         <div className="tipo-toggle">
           <div
             className={`tipo-option ingreso ${tipo === 'ingreso' ? 'active' : ''}`}
             onClick={() => setTipo('ingreso')}
           >
-            Ingreso
+            💚 Ingreso
           </div>
           <div
             className={`tipo-option gasto ${tipo === 'gasto' ? 'active' : ''}`}
             onClick={() => setTipo('gasto')}
           >
-            Gasto
+            ❤️ Gasto
           </div>
         </div>
 
@@ -93,9 +93,9 @@ export default function RegistroMovimiento({ userId, negocioId, onGuardado }) {
           onChange={(e) => setMetodoPago(e.target.value)}
           className="form-field"
         >
-          <option value="efectivo">Efectivo</option>
-          <option value="tarjeta">Tarjeta</option>
-          <option value="transferencia">Transferencia</option>
+          <option value="efectivo">💵 Efectivo</option>
+          <option value="tarjeta">💳 Tarjeta</option>
+          <option value="transferencia">🏦 Transferencia</option>
         </select>
 
         <input

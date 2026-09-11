@@ -12,6 +12,8 @@ import NombreNegocio from './components/NombreNegocio'
 import ControlGanancias from './components/ControlGanancias'
 import GananciasPorDia from './components/GananciasPorDia'
 import ConciliacionPedidos from './components/ConciliacionPedidos'
+import ListaCompras from './components/ListaCompras'
+import Pendientes from './components/Pendientes'
 import './App.css'
 
 function App() {
@@ -77,6 +79,11 @@ function App() {
         <div className="tab-content" key="inicio">
           {esJefe && <ControlGanancias negocioId={perfil?.negocio_id} refrescar={refrescar} />}
           <GraficaSaldo negocioId={perfil?.negocio_id} refrescar={refrescar} />
+          <RegistroMovimiento
+            userId={user.id}
+            negocioId={perfil?.negocio_id}
+            onGuardado={() => setRefrescar((r) => r + 1)}
+          />
         </div>
       )}
 
@@ -100,6 +107,13 @@ function App() {
         </div>
       )}
 
+      {tab === 'notas' && (
+        <div className="tab-content" key="notas">
+          <ListaCompras negocioId={perfil?.negocio_id} />
+          <Pendientes negocioId={perfil?.negocio_id} />
+        </div>
+      )}
+
       {tab === 'equipo' && esJefe && (
         <div className="tab-content" key="equipo">
           <CrearEmpleado />
@@ -118,6 +132,10 @@ function App() {
         <button className={`nav-item ${tab === 'reportes' ? 'active' : ''}`} onClick={() => setTab('reportes')}>
           <span className="icon">📊</span>
           Reportes
+        </button>
+        <button className={`nav-item ${tab === 'notas' ? 'active' : ''}`} onClick={() => setTab('notas')}>
+          <span className="icon">📝</span>
+          Notas
         </button>
         {esJefe && (
           <button className={`nav-item ${tab === 'equipo' ? 'active' : ''}`} onClick={() => setTab('equipo')}>
