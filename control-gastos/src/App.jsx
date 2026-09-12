@@ -89,7 +89,11 @@ function App() {
 
       {tab === 'movimientos' && (
         <div className="tab-content" key="movimientos">
-          <ListaMovimientos negocioId={perfil?.negocio_id} refrescar={refrescar} />
+          <ListaMovimientos
+            negocioId={perfil?.negocio_id}
+            refrescar={refrescar}
+            onCambio={() => setRefrescar((r) => r + 1)}
+          />
           <LectorComanda userId={user.id} negocioId={perfil?.negocio_id} />
           <RegistroMovimiento
             userId={user.id}

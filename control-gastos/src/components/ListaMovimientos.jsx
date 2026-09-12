@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 
-export default function ListaMovimientos({ negocioId, refrescar }) {
+export default function ListaMovimientos({ negocioId, refrescar, onCambio }) {
   const [movimientos, setMovimientos] = useState([])
   const [cargando, setCargando] = useState(true)
 
@@ -19,6 +19,14 @@ export default function ListaMovimientos({ negocioId, refrescar }) {
 
     if (!error) setMovimientos(data)
     setCargando(false)
+  }
+
+  const borrar = async (id) => {
+    if (!confirm('¿Borrar este movimiento? Esta acción no se puede deshacer.')) return
+
+    await supabase.from('movimientos').delete().eq('id', id)
+    setMovimientos(movimientos.filter((m) => m.id !== id))
+    if (onCambio) onCambio()
   }
 
   if (cargando) return <p style={{ color: '#9891A3' }}>Cargando movimientos...</p>
@@ -39,11 +47,14 @@ export default function ListaMovimientos({ negocioId, refrescar }) {
                 {m.descripcion || 'Sin descripción'} · {m.metodo_pago}
               </div>
             </div>
-            <div>
-              <div className="movement-amount">${Number(m.monto).toFixed(2)}</div>
-              <div className="movement-date">
-                {new Date(m.created_at).toLocaleDateString()}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ textAlign: 'right' }}>
+                <div className="movement-amount">${Number(m.monto).toFixed(2)}</div>
+                <div className="movement-date">
+                  {new Date(m.created_at).toLocaleDateString()}
+                </div>
               </div>
+              <button className="btn-borrar" onClick={() => borrar(m.id)}>✕</button>
             </div>
           </div>
         ))
